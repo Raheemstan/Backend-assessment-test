@@ -29,7 +29,7 @@
         "php": "^7.3|^8.0",
         "amenadiel/jpgraph": "^4.1",
         "guzzlehttp/guzzle": "^7.0.1",
-        "hasob/hasob-foundation-core-bs-5": "dev-master",
+        "hasob/hasob-foundation-core-bs-5": "dev-main",
         "illuminate/routing": "^6|^7|^8",
         "illuminate/session": "^6|^7|^8",
         "illuminate/support": "^6|^7|^8",
