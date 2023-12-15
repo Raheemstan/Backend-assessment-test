@@ -7,10 +7,11 @@ use Hasob\FoundationCore\Traits\Ledgerable;
 use Hasob\FoundationCore\Traits\Artifactable;
 use Hasob\FoundationCore\Traits\OrganizationalConstraint;
 
-use Eloquent as Model;
+// use Eloquent as Model;
 
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class Offer
