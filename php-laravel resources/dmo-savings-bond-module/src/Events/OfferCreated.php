@@ -26,5 +26,4 @@ class OfferCreated
     {
         $this->offer = $offer;
     }
-
 }

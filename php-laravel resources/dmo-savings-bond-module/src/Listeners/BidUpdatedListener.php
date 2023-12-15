@@ -3,7 +3,7 @@
 namespace DMO\SavingsBond\Listeners;
 
 use DMO\SavingsBond\Models\Bid;
-use DMO\SavingsBond\Models\BidUpdated;
+use DMO\SavingsBond\Events\BidUpdated;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 

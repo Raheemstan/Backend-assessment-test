@@ -3,7 +3,7 @@
 namespace DMO\SavingsBond\Listeners;
 
 use DMO\SavingsBond\Models\Offer;
-use DMO\SavingsBond\Models\OfferDeleted;
+use DMO\SavingsBond\Events\OfferDeleted;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 
