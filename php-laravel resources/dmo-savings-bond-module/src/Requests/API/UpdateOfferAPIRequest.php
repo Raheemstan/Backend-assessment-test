@@ -3,7 +3,8 @@
 namespace DMO\SavingsBond\Requests\API;
 
 use DMO\SavingsBond\Models\Offer;
-use DMO\SavingsBond\Requests\AppBaseFormRequest;
+use Hasob\FoundationCore\Requests\AppBaseFormRequest;
+// use DMO\SavingsBond\Requests\AppBaseFormRequest;
 
 
 class UpdateOfferAPIRequest extends AppBaseFormRequest

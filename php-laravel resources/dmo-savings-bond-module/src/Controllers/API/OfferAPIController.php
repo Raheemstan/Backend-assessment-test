@@ -2,6 +2,7 @@
 
 namespace DMO\SavingsBond\Controllers\API;
 
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use DMO\SavingsBond\Models\Offer;
@@ -45,8 +46,8 @@ class OfferAPIController extends AppBaseController
         if ($request->get('limit')) {
             $query->limit($request->get('limit'));
         }
-        
-        if ($organization != null){
+
+        if ($organization != null) {
             $query->where('organization_id', $organization->id);
         }
 
@@ -69,7 +70,7 @@ class OfferAPIController extends AppBaseController
 
         /** @var Offer $offer */
         $offer = Offer::create($input);
-        
+
         OfferCreated::dispatch($offer);
         return $this->sendResponse($offer->toArray(), 'Offer saved successfully');
     }
@@ -82,6 +83,7 @@ class OfferAPIController extends AppBaseController
      *
      * @return Response
      */
+
     public function show($id, Organization $organization)
     {
         /** @var Offer $offer */
@@ -91,8 +93,19 @@ class OfferAPIController extends AppBaseController
             return $this->sendError('Offer not found');
         }
 
+        $offerDate = Carbon::parse($offer->offer_start_date)->toDateString();
+        $offerEndDate = Carbon::parse($offer->offer_end_date)->toDateString();
+        $offerSettleDate = Carbon::parse($offer->offer_settlement_date)->toDateString();
+        $offerMaturityDate = Carbon::parse($offer->offer_maturity_date)->toDateString();
+
+        $offer->offer_start_date = $offerDate;
+        $offer->offer_end_date = $offerEndDate;
+        $offer->offer_settlement_date = $offerSettleDate;
+        $offer->offer_maturity_date = $offerMaturityDate;
+
         return $this->sendResponse($offer->toArray(), 'Offer retrieved successfully');
     }
+
 
     /**
      * Update the specified Offer in storage.
@@ -114,7 +127,7 @@ class OfferAPIController extends AppBaseController
 
         $offer->fill($request->all());
         $offer->save();
-        
+
         OfferUpdated::dispatch($offer);
         return $this->sendResponse($offer->toArray(), 'Offer updated successfully');
     }
